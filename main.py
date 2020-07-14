@@ -1,5 +1,5 @@
 from flask import Flask, request, session, redirect, url_for, flash
-from flask_login import logout_user
+#from flask_login import logout_user
 #import mysql.connector
 import os
 from os import getenv
