@@ -6,7 +6,7 @@ from os import getenv
 from dotenv import load_dotenv
 #import database
 #from database import mycursor
-#from flask_session import Session
+from flask_session import Session
 
 app = Flask(__name__,
     static_folder='build',
