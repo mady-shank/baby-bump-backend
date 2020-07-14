@@ -1,12 +1,12 @@
 from flask import Flask, request, session, redirect, url_for, flash
 from flask_login import logout_user
-import mysql.connector
+#import mysql.connector
 import os
 from os import getenv
 from dotenv import load_dotenv
-import database
-from database import mycursor
-from flask_session import Session
+#import database
+#from database import mycursor
+#from flask_session import Session
 
 app = Flask(__name__,
     static_folder='build',
@@ -38,8 +38,8 @@ def register():
     Role = request.args.get("role")
 
     # if this returns a user, then the email already exists in the database
-    mycursor.execute('SELECT email from User WHERE email = %(email)s', {'email' : Email })
-    checkUser = mycursor.fetchall()
+    #mycursor.execute('SELECT email from User WHERE email = %(email)s', {'email' : Email })
+    #checkUser = mycursor.fetchall()
 
     # if a user is returned, the user is rerouted to the register page, where they can try a different email.
     if checkUser:
@@ -47,10 +47,10 @@ def register():
         return redirect(url_for('register'))
 
     #add user info to the table User
-    add_user = "INSERT INTO User (username, password, email, role) VALUES (%s, %s, %s, %s)"
-    user_info = (Username, Password, Email, Role)
-    database.mycursor.execute(add_user, user_info)
-    database.db.commit()
+    #add_user = "INSERT INTO User (username, password, email, role) VALUES (%s, %s, %s, %s)"
+    #user_info = (Username, Password, Email, Role)
+   # database.mycursor.execute(add_user, user_info)
+    #database.db.commit()
     #database.db.close()
 
     return "Registration Complete"
@@ -61,8 +61,8 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    mycursor.execute('SELECT * FROM User WHERE username = %s and password = %s', (username, password))
-    account = mycursor.fetchone()
+    #mycursor.execute('SELECT * FROM User WHERE username = %s and password = %s', (username, password))
+    #account = mycursor.fetchone()
     #database.db.close()
 
     if account:
