@@ -16,7 +16,7 @@ app = Flask(__name__,
 sess = Session()
 
 #Set the secret key
-load_dotenv()
+#load_dotenv()
 #app.config["SECRET_KEY"] = os.getenv("secret_key")
 #app.config['SESSION_TYPE'] = 'memcache'
 
@@ -63,7 +63,7 @@ def login():
 
     mycursor.execute('SELECT * FROM User WHERE username = %s and password = %s', (username, password))
     account = mycursor.fetchone()
-    database.db.close()
+    #database.db.close()
 
     if account:
         session['username'] = session.form('username')
@@ -79,10 +79,10 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('root'))
 
-if __name__ == '__main__':
-    app.secret_key = os.getenv("secret_key")
-    app.debug = True
+#if __name__ == '__main__':
+#    app.secret_key = os.getenv("secret_key")
+#    app.debug = True
 
-    sess.init_app(app)
-    app.run()
+#    sess.init_app(app)
+#    app.run()
 
