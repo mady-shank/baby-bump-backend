@@ -1,11 +1,11 @@
 from flask import Flask, request, session, redirect, url_for, flash
-#from flask_login import logout_user
-#import mysql.connector
+from flask_login import logout_user
+import mysql.connector
 import os
 from os import getenv
 from dotenv import load_dotenv
-#import database
-#from database import mycursor
+import database
+from database import mycursor
 from flask_session import Session
 
 app = Flask(__name__,
@@ -47,11 +47,11 @@ def register():
         return redirect(url_for('register'))
 
     #add user info to the table User
-    #add_user = "INSERT INTO User (username, password, email, role) VALUES (%s, %s, %s, %s)"
-    #user_info = (Username, Password, Email, Role)
-   # database.mycursor.execute(add_user, user_info)
-    #database.db.commit()
-    #database.db.close()
+    add_user = "INSERT INTO User (username, password, email, role) VALUES (%s, %s, %s, %s)"
+    user_info = (Username, Password, Email, Role)
+    database.mycursor.execute(add_user, user_info)
+    database.db.commit()
+    database.db.close()
 
     return "Registration Complete"
 
@@ -61,9 +61,9 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    #mycursor.execute('SELECT * FROM User WHERE username = %s and password = %s', (username, password))
-    #account = mycursor.fetchone()
-    #database.db.close()
+    mycursor.execute('SELECT * FROM User WHERE username = %s and password = %s', (username, password))
+    account = mycursor.fetchone()
+    database.db.close()
 
     if account:
         session['username'] = session.form('username')

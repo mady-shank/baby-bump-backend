@@ -16,6 +16,7 @@ db = mysql.connector.connect(
     database = "babybump"
 )
 
+#set cursor object
 mycursor = db.cursor()
 
 # create database and tables if they don't already exist
