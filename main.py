@@ -15,11 +15,6 @@ app = Flask(__name__,
 
 sess = Session()
 
-#Set the secret key
-#load_dotenv()
-#app.config["SECRET_KEY"] = os.getenv("secret_key")
-#app.config['SESSION_TYPE'] = 'memcache'
-
 
 #main route
 @app.route('/')
@@ -38,8 +33,8 @@ def register():
     Role = request.args.get("role")
 
     # if this returns a user, then the email already exists in the database
-    #mycursor.execute('SELECT email from User WHERE email = %(email)s', {'email' : Email })
-    #checkUser = mycursor.fetchall()
+    mycursor.execute('SELECT email from User WHERE email = %(email)s', {'email' : Email })
+    checkUser = mycursor.fetchall()
 
     # if a user is returned, the user is rerouted to the register page, where they can try a different email.
     if checkUser:
