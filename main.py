@@ -32,12 +32,12 @@ def register():
     Email = request.args.get("email")
     Role = request.args.get("role")
 
-     if this returns a user, then the email already exists in the database
+    #if this returns a user, then the email already exists in the database
     mycursor.execute('SELECT email from User WHERE email = %(email)s', {'email' : Email })
     checkUser = mycursor.fetchall()
 
     # if a user is returned, the user is rerouted to the register page, where they can try a different email.
-    #if checkUser:
+    if checkUser:
         flash('This email has already been registered.')
         return redirect(url_for('register'))
 
