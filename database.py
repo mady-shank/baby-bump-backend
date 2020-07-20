@@ -2,6 +2,7 @@ import mysql.connector
 import os
 from os import getenv
 from dotenv import load_dotenv
+import dj_database_url
 
 
 #calling the .env file
@@ -10,7 +11,9 @@ password = os.getenv("password_db")
 
 #connect to server
 db = mysql.connector.connect(
-    host = "localhost",
+    host = "127.0.0.1",
+    #port = "5000",
+    #host = "localhost",
     user = "root",
     passwd = password,
     database = "babybump"
