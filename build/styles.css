@@ -260,3 +260,39 @@ p.row span {
   border-radius: 10px;
   padding: 20px;
 }
+
+.signup-form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+}
+.signup-form input {
+  width: 100%;
+}
+.signup-form br {
+  display: block;
+  margin-top: 5px;
+  content: " ";
+}
+
+.profile-title {
+  color: #3D6053 !important;
+  font-weight: bold;
+  line-height: 0.5;
+}
+
+.home-section {
+  margin: 100px 0;
+  position: relative;
+  color: #FFF;
+  background: #D2A297;
+  border-radius: 200px 0px;
+  padding: 50px;
+  text-align: center;
+}
+.home-section img {
+  width: 80%;
+}
+.home-section p {
+  color: #FFF;
+}
